@@ -2,7 +2,7 @@
     // ========================================================
     // Python Environment — macOS + uv
     // ========================================================
-    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.defaultInterpreterPath": "${workspaceFolder}/backend/.venv/bin/python",
     "python.terminal.activateEnvironment": true,
     // ========================================================
     // Pylance — Analysis & Auto Imports
@@ -17,51 +17,53 @@
     "python.analysis.completeFunctionParens": true,
     "python.analysis.autoFormatStrings": true,
     "python.analysis.diagnosticMode": "workspace",
-    // Automatically update imports when moving files
-    "python.analysis.autoImportCompletions": true,
-    "python.analysis.fixAll": [],
+    // Resolve imports from the backend's src layout.
+    // Runtime imports are handled by the installed package.
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/backend/src"
+    ],
     // ========================================================
     // Package Indexing — Evidentia Stack
     // ========================================================
     "python.analysis.packageIndexDepths": [
         {
             "name": "langchain",
-            "depth": 4,
+            "depth": 3,
             "includeAllSymbols": true
         },
         {
             "name": "langchain_core",
-            "depth": 4,
+            "depth": 3,
             "includeAllSymbols": true
         },
         {
             "name": "langchain_openai",
-            "depth": 3,
+            "depth": 2,
             "includeAllSymbols": true
         },
         {
             "name": "langchain_text_splitters",
-            "depth": 3,
+            "depth": 2,
             "includeAllSymbols": true
         },
         {
             "name": "langgraph",
-            "depth": 4,
+            "depth": 3,
             "includeAllSymbols": true
         },
         {
             "name": "langgraph_checkpoint",
-            "depth": 3,
+            "depth": 2,
             "includeAllSymbols": true
         },
         {
             "name": "langsmith",
-            "depth": 3,
+            "depth": 2,
             "includeAllSymbols": true
         },
         {
             "name": "fastapi",
-            "depth": 3,
+            "depth": 2,
             "includeAllSymbols": true
         },
         {
@@ -76,7 +78,7 @@
         },
         {
             "name": "sqlalchemy",
-            "depth": 4,
+            "depth": 3,
             "includeAllSymbols": true
         },
         {
@@ -86,22 +88,22 @@
         },
         {
             "name": "openai",
-            "depth": 3,
+            "depth": 2,
             "includeAllSymbols": true
         },
         {
             "name": "httpx",
-            "depth": 3,
+            "depth": 2,
             "includeAllSymbols": true
         },
         {
             "name": "typer",
-            "depth": 3,
+            "depth": 2,
             "includeAllSymbols": true
         },
         {
             "name": "rich",
-            "depth": 3,
+            "depth": 2,
             "includeAllSymbols": true
         },
         {
@@ -126,14 +128,14 @@
         }
     ],
     // ========================================================
-    // IntelliSense — Aggressive Suggestions
+    // IntelliSense — Suggestions
     // ========================================================
     "editor.quickSuggestions": {
         "other": "on",
         "comments": "off",
         "strings": "off"
     },
-    "editor.quickSuggestionsDelay": 0,
+    "editor.quickSuggestionsDelay": 10,
     "editor.suggestOnTriggerCharacters": true,
     "editor.suggest.showWords": false,
     "editor.suggest.showMethods": true,
@@ -148,14 +150,14 @@
     "editor.acceptSuggestionOnEnter": "on",
     "editor.inlineSuggest.enabled": true,
     // ========================================================
-    // Python — Ruff Formatting & Import Organization
+    // Python — Ruff Formatting & Linting
     // ========================================================
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit",
-            "source.fixAll.ruff": "explicit"
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
         }
     },
     // ========================================================
@@ -163,8 +165,6 @@
     // ========================================================
     "ruff.enable": true,
     "ruff.nativeServer": "on",
-    "ruff.organizeImports": true,
-    "ruff.fixAll": true,
     // ========================================================
     // Editor Quality of Life
     // ========================================================
@@ -176,6 +176,9 @@
     "editor.rulers": [
         88
     ],
+    // ========================================================
+    // Files
+    // ========================================================
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "files.exclude": {

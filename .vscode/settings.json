@@ -1,0 +1,192 @@
+{
+    // ========================================================
+    // Python Environment — macOS + uv
+    // ========================================================
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    // ========================================================
+    // Pylance — Analysis & Auto Imports
+    // ========================================================
+    "python.analysis.languageServerMode": "full",
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.indexing": true,
+    "python.analysis.useLibraryCodeForTypes": true,
+    "python.analysis.autoSearchPaths": true,
+    "python.analysis.importFormat": "absolute",
+    "python.analysis.completeFunctionParens": true,
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.diagnosticMode": "workspace",
+    // Automatically update imports when moving files
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.fixAll": [],
+    // ========================================================
+    // Package Indexing — Evidentia Stack
+    // ========================================================
+    "python.analysis.packageIndexDepths": [
+        {
+            "name": "langchain",
+            "depth": 4,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "langchain_core",
+            "depth": 4,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "langchain_openai",
+            "depth": 3,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "langchain_text_splitters",
+            "depth": 3,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "langgraph",
+            "depth": 4,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "langgraph_checkpoint",
+            "depth": 3,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "langsmith",
+            "depth": 3,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "fastapi",
+            "depth": 3,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "pydantic",
+            "depth": 3,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "pydantic_settings",
+            "depth": 2,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "sqlalchemy",
+            "depth": 4,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "alembic",
+            "depth": 2,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "openai",
+            "depth": 3,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "httpx",
+            "depth": 3,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "typer",
+            "depth": 3,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "rich",
+            "depth": 3,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "dramatiq",
+            "depth": 2,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "redis",
+            "depth": 2,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "boto3",
+            "depth": 2,
+            "includeAllSymbols": true
+        },
+        {
+            "name": "fitz",
+            "depth": 2,
+            "includeAllSymbols": true
+        }
+    ],
+    // ========================================================
+    // IntelliSense — Aggressive Suggestions
+    // ========================================================
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "off",
+        "strings": "off"
+    },
+    "editor.quickSuggestionsDelay": 0,
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.suggest.showWords": false,
+    "editor.suggest.showMethods": true,
+    "editor.suggest.showFunctions": true,
+    "editor.suggest.showClasses": true,
+    "editor.suggest.showModules": true,
+    "editor.suggest.showVariables": true,
+    "editor.suggest.showKeywords": true,
+    "editor.suggest.showSnippets": true,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "on",
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.inlineSuggest.enabled": true,
+    // ========================================================
+    // Python — Ruff Formatting & Import Organization
+    // ========================================================
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+            "source.fixAll.ruff": "explicit"
+        }
+    },
+    // ========================================================
+    // Ruff
+    // ========================================================
+    "ruff.enable": true,
+    "ruff.nativeServer": "on",
+    "ruff.organizeImports": true,
+    "ruff.fixAll": true,
+    // ========================================================
+    // Editor Quality of Life
+    // ========================================================
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        88
+    ],
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/.ruff_cache": true,
+        "**/.mypy_cache": true,
+        "**/.venv": true
+    },
+    // ========================================================
+    // Terminal — macOS
+    // ========================================================
+    "terminal.integrated.defaultProfile.osx": "zsh"
+}

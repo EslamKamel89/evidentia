@@ -1,0 +1,281 @@
+
+# ============================================================
+# Evidentia — .gitignore
+# https://github.com/EslamKamel89/evidentia
+# ============================================================
+
+# ------------------------------------------------------------
+# Python — Bytecode and compiled files
+# ------------------------------------------------------------
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# ------------------------------------------------------------
+# Python — Virtual environments
+# ------------------------------------------------------------
+
+.venv/
+venv/
+env/
+ENV/
+.python-version.local
+
+# ------------------------------------------------------------
+# Python — Packaging and build artifacts
+# ------------------------------------------------------------
+
+build/
+dist/
+downloads/
+*.egg-info/
+*.egg
+.eggs/
+wheels/
+pip-wheel-metadata/
+.installed.cfg
+MANIFEST
+
+# ------------------------------------------------------------
+# Python — Testing and coverage
+# ------------------------------------------------------------
+
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+test-results/
+junit.xml
+*.prof
+*.profraw
+
+# ------------------------------------------------------------
+# Python — Linters and type checkers
+# ------------------------------------------------------------
+
+.mypy_cache/
+.pyright/
+.ruff_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+
+# ------------------------------------------------------------
+# Jupyter notebooks
+# ------------------------------------------------------------
+
+.ipynb_checkpoints/
+
+# ------------------------------------------------------------
+# Environment variables and secrets
+# ------------------------------------------------------------
+
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+secrets/
+credentials/
+service-account*.json
+
+# ------------------------------------------------------------
+# IDEs and editors
+# ------------------------------------------------------------
+
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# ------------------------------------------------------------
+# Operating system files
+# ------------------------------------------------------------
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+$RECYCLE.BIN/
+.Spotlight-V100/
+.Trashes/
+
+# ------------------------------------------------------------
+# Logs and runtime files
+# ------------------------------------------------------------
+
+*.log
+logs/
+*.pid
+*.pid.lock
+*.seed
+
+tmp/
+temp/
+.cache/
+
+# ------------------------------------------------------------
+# Local databases and persistence
+# ------------------------------------------------------------
+
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+postgres_data/
+pgdata/
+redis_data/
+redis-data/
+
+# ------------------------------------------------------------
+# Docker — Local overrides and volumes
+# ------------------------------------------------------------
+
+compose.override.yaml
+compose.override.yml
+docker-compose.override.yml
+docker-compose.override.yaml
+
+.docker-volumes/
+docker-volumes/
+
+# ------------------------------------------------------------
+# Document ingestion — Local files
+# ------------------------------------------------------------
+
+data/
+uploads/
+storage/
+artifacts/
+
+# Local research documents and generated reports
+papers/
+documents/
+reports/
+
+# Keep sample directories when explicitly tracked
+!data/.gitkeep
+!uploads/.gitkeep
+!storage/.gitkeep
+!artifacts/.gitkeep
+!papers/.gitkeep
+!documents/.gitkeep
+!reports/.gitkeep
+
+# ------------------------------------------------------------
+# LangChain / LangGraph — Local state
+# ------------------------------------------------------------
+
+.langgraph_api/
+.langgraph/
+.langchain/
+
+# ------------------------------------------------------------
+# AI models and local model artifacts
+# ------------------------------------------------------------
+
+models/
+checkpoints/
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.gguf
+*.ggml
+
+# ------------------------------------------------------------
+# Embeddings and local vector stores
+# ------------------------------------------------------------
+
+chroma/
+chroma_db/
+chroma_data/
+.chroma/
+vector_store/
+vectorstore/
+faiss_index/
+
+# ------------------------------------------------------------
+# Evaluation outputs
+# ------------------------------------------------------------
+
+evals/results/
+evals/outputs/
+evals/cache/
+
+# ------------------------------------------------------------
+# Local CLI state
+# ------------------------------------------------------------
+
+.evidentia/
+evidentia.local.yaml
+evidentia.local.yml
+
+# ------------------------------------------------------------
+# Frontend / Node tooling (optional future tooling)
+# ------------------------------------------------------------
+
+node_modules/
+.next/
+.nuxt/
+.npm/
+.pnpm-store/
+
+# ------------------------------------------------------------
+# Temporary and backup files
+# ------------------------------------------------------------
+
+*.bak
+*.backup
+*.tmp
+*.temp
+*.orig
+*.rej
+*.sublime-workspace
+
+# ------------------------------------------------------------
+# IMPORTANT — Keep project configuration and source files
+# ------------------------------------------------------------
+
+# Do NOT ignore:
+#
+# pyproject.toml
+# uv.lock
+# alembic.ini
+# alembic/versions/
+# Dockerfile
+# compose.yaml
+# .env.example
+# SPEC.md
+# README.md
+# docs/
+# backend/
+# cli/
+# tests/
+# evals/ datasets and fixtures
+# .github/workflows/
+#
+# These files should remain version-controlled.

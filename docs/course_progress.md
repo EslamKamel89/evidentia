@@ -6,21 +6,21 @@
 
 ## Progress Overview
 
-| Metric           | Value |
-| ---------------- | ----- |
-| Total Sections   | 6     |
-| Total Lessons    | 15    |
-| Completed        | 1     |
-| In Progress      | 0     |
-| Not Started      | 14    |
-| Overall Progress | 6.7%  |
+| Metric              | Value  |
+| ------------------- | ------ |
+| Total Sections      | 6      |
+| Total Lessons       | 15     |
+| Completed           | 2      |
+| In Progress         | 0      |
+| Not Started         | 13     |
+| Progress percentage | 13.33% |
 
 ## Lesson Progress
 
 | #   | Section                                     | Lesson                                      | Status      | Completion Date |
 | --- | ------------------------------------------- | ------------------------------------------- | ----------- | --------------- |
 | 01  | Application Foundation                      | Project Architecture & Infrastructure       | Completed   | 2026-11-12      |
-| 02  | Application Foundation                      | Terminal CLI & API Integration              | Not Started | —               |
+| 02  | Application Foundation                      | Terminal CLI & API Integration              | Completed   | — 2026-11-21    |
 | 03  | Document Intelligence & RAG                 | Production Document Ingestion               | Not Started | —               |
 | 04  | Document Intelligence & RAG                 | Advanced Retrieval Engine                   | Not Started | —               |
 | 05  | Document Intelligence & RAG                 | Evidence-Grounded RAG & Structured Answers  | Not Started | —               |
@@ -108,7 +108,90 @@ processing are introduced.
 
 ### Lesson 02 — Terminal CLI & API Integration
 
-_No notes yet._
+**Completion Date:** 2026-11-21
+
+**Status:** Completed — CLI-to-API communication verified; all three CLI tests passed.
+
+#### Implemented
+
+- Initialized `evidentia-cli` as an independent Python 3.12 package using uv.
+- Configured the `evidentia` executable through the project's entry point.
+- Integrated Typer for command dispatch and Rich for terminal formatting.
+- Implemented the FastAPI `/api/v1/info` endpoint.
+- Created an HTTPX API client with reusable request handling.
+- Implemented generic Pydantic response validation using Python 3.12 type parameter syntax.
+- Defined typed response schemas for health and application information.
+- Added environment-based CLI configuration using Pydantic Settings.
+- Implemented custom exceptions for connection failures, HTTP errors, and invalid API responses.
+- Implemented the `evidentia health` and `evidentia info` commands.
+- Added CLI tests using Typer's `CliRunner` and HTTPX `MockTransport`.
+- Added a backend test for the application information endpoint.
+
+#### Key Concepts
+
+- **CLI architecture:** Separate command-line presentation from backend application logic.
+- **Client-server communication:** Access backend functionality through HTTP rather than importing backend services into the CLI.
+- **API contracts:** Validate external JSON responses using Pydantic models.
+- **Generic programming:** Preserve response types using `def _get[T: BaseModel](...) -> T`.
+- **HTTP client lifecycle:** Reuse an HTTPX client within a command and close it through a context manager.
+- **Error propagation:** Translate transport, HTTP, and validation failures into application-specific exceptions.
+- **Configuration management:** Configure API connection settings independently using environment variables.
+- **Test isolation:** Simulate HTTP responses with `MockTransport` without requiring a running backend.
+- **Terminal presentation:** Use Rich to render structured output independently of API communication.
+
+#### Verification
+
+- [x] CLI executable successfully registered.
+- [x] `evidentia --help` displays available commands.
+- [x] `evidentia health` communicates with FastAPI and returns `API status: ok`.
+- [x] `evidentia info` displays the application name and version.
+- [x] CLI-to-FastAPI communication verified manually.
+- [x] Health command test passed.
+- [x] Information command test passed.
+- [x] API connection failure test passed.
+- [x] All three CLI tests passed using pytest.
+- [ ] Ruff and Pyright checks independently verified.
+- [ ] Backend test suite results confirmed.
+
+#### Test Results
+
+**Environment:** macOS, Python 3.12.7, pytest 9.2.0.
+
+```text
+collected 3 items
+
+src/tests/test_cli.py ... [100%]
+
+3 passed in 0.08s
+```
+
+**Verified CLI output:**
+
+```text
+$ uv run evidentia health
+API status: ok
+
+$ uv run evidentia info
+Name     Evidentia API
+Version  0.1.0
+```
+
+#### Engineering Decisions
+
+- Maintained separate backend and CLI Python packages to preserve architectural boundaries.
+- Selected synchronous HTTPX because the initial commands perform simple sequential requests.
+- Used generic response validation to maintain type safety without runtime type assertions.
+- Injected HTTPX transports to enable deterministic tests without network dependencies.
+- Centralized API communication and error handling in `EvidentiaClient`.
+- Kept terminal formatting inside Typer commands instead of mixing presentation with transport logic.
+
+#### Notes
+
+Lesson 02 establishes the reusable CLI-to-API integration layer for subsequent features.
+
+Future commands for document ingestion, retrieval, research, and report generation can extend the existing HTTP client while preserving the separation between terminal presentation and backend execution.
+
+**Next Lesson:** Lesson 03 — Production Document Ingestion.
 
 ### Lesson 03 — Production Document Ingestion
 

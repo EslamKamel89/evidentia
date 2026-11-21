@@ -20,7 +20,7 @@
 | #   | Section                                     | Lesson                                      | Status      | Completion Date |
 | --- | ------------------------------------------- | ------------------------------------------- | ----------- | --------------- |
 | 01  | Application Foundation                      | Project Architecture & Infrastructure       | Completed   | 2026-11-12      |
-| 02  | Application Foundation                      | Terminal CLI & API Integration              | Completed   | — 2026-11-21    |
+| 02  | Application Foundation                      | Terminal CLI & API Integration              | Completed   | 2026-11-21      |
 | 03  | Document Intelligence & RAG                 | Production Document Ingestion               | Not Started | —               |
 | 04  | Document Intelligence & RAG                 | Advanced Retrieval Engine                   | Not Started | —               |
 | 05  | Document Intelligence & RAG                 | Evidence-Grounded RAG & Structured Answers  | Not Started | —               |

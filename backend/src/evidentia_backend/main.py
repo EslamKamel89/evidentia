@@ -92,6 +92,13 @@ def create_app() -> FastAPI:
 
         return {"status": "ready"}
 
+    @app.get("/api/v1/info")
+    async def application_info() -> dict[str, str]:
+        return {
+            "name": settings.app_name,
+            "version": app.version,
+        }
+
     return app
 
 

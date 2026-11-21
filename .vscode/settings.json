@@ -125,6 +125,11 @@
             "name": "fitz",
             "depth": 2,
             "includeAllSymbols": true
+        },
+        {
+            "name": "rich",
+            "depth": 3,
+            "includeAllSymbols": true
         }
     ],
     // ========================================================
